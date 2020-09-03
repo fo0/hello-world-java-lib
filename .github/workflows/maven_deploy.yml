@@ -16,4 +16,4 @@ jobs:
       - name: Publish package
         run: mvn -B deploy --file hello-world-example/pom.xml
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
