@@ -29,6 +29,7 @@ This examples has all includings links and examples for the own repository, plea
   - line 20: java-version
   - line 28: path to your <pom.file>
   - line 32: name of your github-secret for your github-token
+  - line 33: path to your created jar file in target folder
 
 2. create your action for deploy [workflow](https://github.com/fo0/hello-world-java-lib/blob/master/.github/workflows/maven_deploy.yml)
   - line 7: listening for new created releases
