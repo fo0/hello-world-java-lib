@@ -20,7 +20,7 @@ jobs:
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
       - name: Publish to the Maven Central Repository
-        run: mvn -B deploy --file hello-world-example/pom.xml
+        run: mvn -B deploy --file hello-world-example/pom.xml -Possrh
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
@@ -29,6 +29,6 @@ jobs:
         with:
           java-version: 1.8
       - name: Publish to GitHub Packages
-        run: mvn -B deploy --file hello-world-example/pom.xml
+        run: mvn -B deploy --file hello-world-example/pom.xml -Pgithub
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
