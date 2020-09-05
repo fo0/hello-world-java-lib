@@ -23,25 +23,36 @@
 # Let's start!
 This examples has all includings links and examples for the own repository, please modify the links for your own
 
-0. go to your [github actions](https://github.com/fo0/hello-world-java-lib/actions)
-1. create your action for compile [workflow](https://github.com/fo0/hello-world-java-lib/blob/master/.github/workflows/maven_build.yml)
+1. Open your pom.xml and add the following distributedManagement if its not already inside your [pom.xml](https://github.com/fo0/java-gh-package-registry-example/blob/master/hello-world-example/pom.xml)
+```
+	<distributionManagement>
+		<repository>
+			<id>github</id>
+			<name>GitHub Packages</name>
+      <!-- https://maven.pkg.github.com/<github-user>/<repository> -->
+			<url>https://maven.pkg.github.com/fo0/java-gh-package-registry-example</url>
+		</repository>
+	</distributionManagement>
+```
+2. go to your [github actions](https://github.com/fo0/hello-world-java-lib/actions)
+3. create your action for compile [workflow](https://github.com/fo0/hello-world-java-lib/blob/master/.github/workflows/maven_build.yml)
   - line 8: listen for tag-creations
   - line 20: java-version
   - line 28: path to your <pom.file>
   - line 32: name of your github-secret for your github-token
   - line 33: path to your created jar file in target folder
 
-2. create your action for deploy [workflow](https://github.com/fo0/hello-world-java-lib/blob/master/.github/workflows/maven_deploy.yml)
+4. create your action for deploy [workflow](https://github.com/fo0/hello-world-java-lib/blob/master/.github/workflows/maven_deploy.yml)
   - line 7: listening for new created releases
   - line 15: java-version
   - line 17: path to your <pom.file>
   - line 19: name of your github-secret for your github-token
   
-3. commit something
-4. create a new tag i.e. v0.1
-5. check the [github actions](https://github.com/fo0/hello-world-java-lib/actions) there should be some new tasks. Starting with compile, ending with deploy
-6. open [releases](https://github.com/fo0/hello-world-java-lib/releases) after first task compile is finished
-7. open [package-registry](https://github.com/fo0/hello-world-java-lib/packages) after second task deploy is finished
+5. commit something
+6. create a new tag i.e. v0.1
+7. check the [github actions](https://github.com/fo0/hello-world-java-lib/actions) there should be some new tasks. Starting with compile, ending with deploy
+8. open [releases](https://github.com/fo0/hello-world-java-lib/releases) after first task compile is finished
+9. open [package-registry](https://github.com/fo0/hello-world-java-lib/packages) after second task deploy is finished
 
 # How to access the library now?
 There are two ways to access the library
