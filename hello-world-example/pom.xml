@@ -38,7 +38,7 @@
 		<repository>
 			<id>github</id>
 			<name>GitHub Packages</name>
-			<url>https://maven.pkg.github.com/fo0/hello-world-java-lib</url>
+			<url>https://maven.pkg.github.com/fo0/java-gh-package-registry-example</url>
 		</repository>
 	</distributionManagement>
 
