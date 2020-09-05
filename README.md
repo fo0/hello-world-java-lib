@@ -1,3 +1,5 @@
+![Publish package to GitHub Packages](https://github.com/fo0/java-gh-package-registry-example/workflows/Publish%20package%20to%20GitHub%20Packages/badge.svg)
+
 # How to publish your written library inside your github repository to your personal github package registry?
 
 ### first of all there are some requirements for this guide
@@ -16,6 +18,7 @@
 - deploy action listening for new [tags](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/managing-tags) [eclipse-create-tags](https://wiki.eclipse.org/EGit/User_Guide#Creating_a_Tag)
 - java-8
 - maven
+- status badge
 
 
 # Let's start!
@@ -44,6 +47,7 @@ This examples has all includings links and examples for the own repository, plea
 6. check the [github actions](https://github.com/fo0/hello-world-java-lib/actions) there should be some new tasks. Starting with compile, ending with deploy
 7. open [releases](https://github.com/fo0/hello-world-java-lib/releases) after first task compile is finished
 8. open [package-registry](https://github.com/fo0/hello-world-java-lib/packages) after second task deploy is finished
+9. [creating a badge](https://docs.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow#adding-a-workflow-status-badge-to-your-repository)
 
 # How to access the library now?
 There are two ways to access the library
