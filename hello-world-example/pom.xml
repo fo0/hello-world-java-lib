@@ -33,14 +33,29 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
-
-	<distributionManagement>
-		<repository>
+	
+	<profiles>
+		<profile>
 			<id>github</id>
-			<name>GitHub Packages</name>
-			<url>https://maven.pkg.github.com/fo0/java-gh-package-registry-example</url>
-		</repository>
-	</distributionManagement>
+			<distributionManagement>
+				<repository>
+					<id>github</id>
+					<name>GitHub Packages</name>
+					<url>https://maven.pkg.github.com/octocat/hello-world</url>
+				</repository>
+			</distributionManagement>
+		</profile>
+		<profile>
+			<id>ossrh</id>
+			<distributionManagement>
+				<repository>
+					<id>ossrh</id>
+					<name>Central Repository OSSRH</name>
+					<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+				</repository>
+			</distributionManagement>
+		</profile>
+	</profiles>
 
 	<build>
 		<plugins>
