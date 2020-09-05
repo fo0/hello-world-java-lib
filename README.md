@@ -44,10 +44,9 @@ This examples has all includings links and examples for the own repository, plea
   
 4. commit something
 5. create a new tag i.e. v0.1
-6. check the [github actions](https://github.com/fo0/hello-world-java-lib/actions) there should be some new tasks. Starting with compile, ending with deploy
-7. open [releases](https://github.com/fo0/hello-world-java-lib/releases) after first task compile is finished
-8. open [package-registry](https://github.com/fo0/hello-world-java-lib/packages) after second task deploy is finished
-9. [creating a badge](https://docs.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow#adding-a-workflow-status-badge-to-your-repository)
+6. check the [github actions](https://github.com/fo0/hello-world-java-lib/actions) there should be one new tasks. Starting with deploy.
+7. open [package-registry](https://github.com/fo0/hello-world-java-lib/packages) after first task deploy is finished
+8. [creating a badge](https://docs.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow#adding-a-workflow-status-badge-to-your-repository)
 
 # How to access the library now?
 There are two ways to access the library
