@@ -4,18 +4,16 @@
 - you need a github account
 - your code must be inside the repository
 - your code must compile
-- every compile & push consumes 2 github actions
+- every push consumes 1 github action
 - this guide is for java-8 but you can do this for java-x too
 - you must be the repository owner
 - you need a [github access token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token)
 - you must now how to add a [secret to github](https://docs.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)
-- you want mavan for your dependency management
+- you want maven for your dependency management
 
 ### what is my configuration?
-- 1 action for compile 
-- compile-action listen to every [tag](https://docs.github.com/en/github/administering-a-repository/managing-releases-in-a-repository) push
-- 1 action for deploy
-- deploy action listening for new release created
+- 1 [action for deploy](https://github.com/fo0/java-gh-package-registry-example/blob/master/.github/workflows/maven_deploy.yml)
+- deploy action listening for new [tags](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/managing-tags) [eclipse-create-tags](https://wiki.eclipse.org/EGit/User_Guide#Creating_a_Tag)
 - java-8
 - maven
 
@@ -35,24 +33,17 @@ This examples has all includings links and examples for the own repository, plea
 	</distributionManagement>
 ```
 2. go to your [github actions](https://github.com/fo0/hello-world-java-lib/actions)
-3. create your action for compile [workflow](https://github.com/fo0/hello-world-java-lib/blob/master/.github/workflows/maven_build.yml)
-  - line 8: listen for tag-creations
-  - line 20: java-version
-  - line 28: path to your <pom.file>
-  - line 32: name of your github-secret for your github-token
-  - line 33: path to your created jar file in target folder
-
-4. create your action for deploy [workflow](https://github.com/fo0/hello-world-java-lib/blob/master/.github/workflows/maven_deploy.yml)
+3. create your action for deploy [workflow](https://github.com/fo0/hello-world-java-lib/blob/master/.github/workflows/maven_deploy.yml)
   - line 7: listening for new created releases
   - line 15: java-version
   - line 17: path to your <pom.file>
   - line 19: name of your github-secret for your github-token
   
-5. commit something
-6. create a new tag i.e. v0.1
-7. check the [github actions](https://github.com/fo0/hello-world-java-lib/actions) there should be some new tasks. Starting with compile, ending with deploy
-8. open [releases](https://github.com/fo0/hello-world-java-lib/releases) after first task compile is finished
-9. open [package-registry](https://github.com/fo0/hello-world-java-lib/packages) after second task deploy is finished
+4. commit something
+5. create a new tag i.e. v0.1
+6. check the [github actions](https://github.com/fo0/hello-world-java-lib/actions) there should be some new tasks. Starting with compile, ending with deploy
+7. open [releases](https://github.com/fo0/hello-world-java-lib/releases) after first task compile is finished
+8. open [package-registry](https://github.com/fo0/hello-world-java-lib/packages) after second task deploy is finished
 
 # How to access the library now?
 There are two ways to access the library
