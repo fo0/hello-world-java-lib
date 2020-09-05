@@ -2,9 +2,11 @@
 # For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
 
 name: Publish package to GitHub Packages
+
 on:
   push:
     tags: 'v*'
+    
 jobs:
   publish:
     runs-on: ubuntu-latest
