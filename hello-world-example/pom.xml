@@ -12,7 +12,7 @@
 		<java.version>1.8</java.version>
 		<version.jdk>${java.version}</version.jdk>
 		<!-- maven -->
-		<maven.assembly.plugin>3.2.0</maven.assembly.plugin>
+		<maven.assembly.plugin>3.3.0</maven.assembly.plugin>
 		<maven.compiler.plugin>3.8.1</maven.compiler.plugin>
 		<maven.war.plugin>3.2.3</maven.war.plugin>
 		<maven.dependency.plugin>3.1.1</maven.dependency.plugin>
@@ -22,10 +22,10 @@
 		<maven.surefire.plugin>3.0.0-M4</maven.surefire.plugin>
 		<maven.source.plugin>3.2.0</maven.source.plugin>
 		<maven.javadoc.plugin>3.2.0</maven.javadoc.plugin>
-		<maven.versions.plugin>2.7</maven.versions.plugin>
-		<maven.wagon.ssh>3.3.4</maven.wagon.ssh>
-		<maven.site.plugin>3.9.0</maven.site.plugin>
-		<maven.project.info.reports.plugin>3.0.0</maven.project.info.reports.plugin>
+		<maven.versions.plugin>2.8.1</maven.versions.plugin>
+		<maven.wagon.ssh>3.4.1</maven.wagon.ssh>
+		<maven.site.plugin>3.9.1</maven.site.plugin>
+		<maven.project.info.reports.plugin>3.1.1</maven.project.info.reports.plugin>
 		<!-- utils -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>${java.version}</maven.compiler.source>
@@ -64,6 +64,17 @@
 
 	<build>
 		<plugins>
+			<plugin>
+			  <groupId>org.sonatype.plugins</groupId>
+			  <artifactId>nexus-staging-maven-plugin</artifactId>
+			  <version>1.6.8</version>
+			  <extensions>true</extensions>
+			  <configuration>
+			     <serverId>ossrh</serverId>
+			     <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+			     <autoReleaseAfterClose>true</autoReleaseAfterClose>
+			  </configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-site-plugin</artifactId>
@@ -105,6 +116,11 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>${maven.surefire.plugin}</version>
+			</plugin>
+			 <plugin>
+				  <groupId>org.apache.maven.plugins</groupId>
+				  <artifactId>maven-deploy-plugin</artifactId>
+				  <version>3.0.0-M1</version>
 			</plugin>
 		</plugins>
 	</build>
