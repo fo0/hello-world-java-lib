@@ -2,10 +2,32 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.fo0.example</groupId>
+	<groupId>me.fo0.example</groupId>
 	<artifactId>hello-world-example</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.3</version>
 	<name>Hello World Example</name>
+	<description>Test Project for testing my first nexus deploy upload</description>
+	<url>https://github.com/fo0/java-gh-package-registry-example</url>
+
+	<licenses>
+		<license>
+			<name>MIT License</name>
+			<url>http://www.opensource.org/licenses/mit-license.php</url>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<name>fo0</name>
+			<email>fo0@fo0.me</email>
+		</developer>
+	</developers>
+
+	<scm>
+		<connection>scm:git:git://github.com/fo0/java-gh-package-registry-example.git</connection>
+		<developerConnection>scm:git:ssh://github.com:fo0/java-gh-package-registry-example.git</developerConnection>
+		<url>http://github.com/fo0/java-gh-package-registry-example/tree/master</url>
+	</scm>
 
 	<properties>
 		<!-- java -->
@@ -33,7 +55,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
-	
+
 	<profiles>
 		<profile>
 			<id>github</id>
@@ -65,15 +87,15 @@
 	<build>
 		<plugins>
 			<plugin>
-			  <groupId>org.sonatype.plugins</groupId>
-			  <artifactId>nexus-staging-maven-plugin</artifactId>
-			  <version>1.6.8</version>
-			  <extensions>true</extensions>
-			  <configuration>
-			     <serverId>ossrh</serverId>
-			     <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-			     <autoReleaseAfterClose>true</autoReleaseAfterClose>
-			  </configuration>
+				<groupId>org.sonatype.plugins</groupId>
+				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<version>1.6.8</version>
+				<extensions>true</extensions>
+				<configuration>
+					<serverId>ossrh</serverId>
+					<nexusUrl>https://oss.sonatype.org/</nexusUrl>
+					<autoReleaseAfterClose>true</autoReleaseAfterClose>
+				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -102,25 +124,42 @@
 					<execution>
 						<id>attach-sources</id>
 						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>${maven.javadoc.plugin}</version>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
 							<goal>jar</goal>
 						</goals>
 					</execution>
 				</executions>
 			</plugin>
 			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>versions-maven-plugin</artifactId>
-				<version>${maven.versions.plugin}</version>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>1.6</version>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>${maven.surefire.plugin}</version>
-			</plugin>
-			 <plugin>
-				  <groupId>org.apache.maven.plugins</groupId>
-				  <artifactId>maven-deploy-plugin</artifactId>
-				  <version>3.0.0-M1</version>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>3.0.0-M1</version>
 			</plugin>
 		</plugins>
 	</build>
