@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>me.fo0.example</groupId>
 	<artifactId>hello-world-example</artifactId>
-	<version>0.0.3</version>
+	<version>0.0.5</version>
 	<name>Hello World Example</name>
 	<description>Test Project for testing my first nexus deploy upload</description>
 	<url>https://github.com/fo0/java-gh-package-registry-example</url>
@@ -99,6 +99,10 @@
 							<groupId>org.apache.maven.plugins</groupId>
 							<artifactId>maven-gpg-plugin</artifactId>
 							<version>1.6</version>
+							<configuration>
+								<gpg.keyname>${env.GPG_KEYNAME}</gpg.keyname>
+								<gpg.passphrase>${env.GPG_PASSPHRASE}</gpg.passphrase>
+							</configuration>
 							<executions>
 								<execution>
 									<id>sign-artifacts</id>
