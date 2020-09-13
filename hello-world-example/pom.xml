@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>me.fo0.example</groupId>
 	<artifactId>hello-world-example</artifactId>
-	<version>0.0.5</version>
+	<version>0.0.6</version>
 	<name>Hello World Example</name>
 	<description>Test Project for testing my first nexus deploy upload</description>
 	<url>https://github.com/fo0/java-gh-package-registry-example</url>
