@@ -25,7 +25,7 @@
 This examples has all includings links and examples for the own repository, please modify the links for your own
 
 1. Open your pom.xml and add the following distributedManagement if its not already inside your [pom.xml](https://github.com/fo0/java-gh-package-registry-example/blob/master/hello-world-example/pom.xml)
-```
+```xml
 	<distributionManagement>
 		<repository>
 			<id>github</id>
